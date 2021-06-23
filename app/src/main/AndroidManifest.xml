@@ -6,7 +6,9 @@
         android:name="android.hardware.bluetooth"
         android:required="true" />
 
+    <!-- For requesting enabling bluetooth -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
+
     <!-- For discovery BT devices -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

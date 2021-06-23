@@ -9,18 +9,24 @@ import java.util.*
 
 class AcceptThread(
     bluetoothAdapter: BluetoothAdapter,
-    displayName: String,
+    val displayName: String,
     uuid: UUID,
     val onConnected: (BluetoothSocket) -> Unit,
 ) : Thread("bt-accept-thread") {
     private val logger: Logger = Logger(this::class)
 
+    init {
+        bluetoothAdapter.name = displayName
+    }
+
     private val mmServerSocket: BluetoothServerSocket? by lazy {
-        bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(displayName, uuid)
+        // The name here is not working
+        bluetoothAdapter.listenUsingRfcommWithServiceRecord(displayName, uuid)
+//        bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(displayName, uuid)
     }
 
     override fun run() {
-        logger.debug("Create server socket: $mmServerSocket")
+        logger.debug("Create server socket with name: $displayName, socket: $mmServerSocket")
 
         var shouldLoop = true
         while (shouldLoop) {

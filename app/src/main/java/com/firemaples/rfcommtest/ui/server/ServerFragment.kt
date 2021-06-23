@@ -25,8 +25,12 @@ class ServerFragment : BaseConnectedFragment(R.layout.fragment_server) {
     }
 
     private fun setViews(view: View) {
-        view.findViewById<View>(R.id.bt_startServer).setOnClickListener {
+        view.findViewById<View>(R.id.bt_requestDiscoverability).setOnClickListener {
             enableDiscoverability()
+        }
+
+        view.findViewById<View>(R.id.bt_startServer).setOnClickListener {
+            startServer()
         }
     }
 
@@ -40,7 +44,7 @@ class ServerFragment : BaseConnectedFragment(R.layout.fragment_server) {
 
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode != Activity.RESULT_CANCELED) {
-            startServer()
+            logger.debug("Start discoverability for ${it.resultCode} seconds")
         }
     }
 
@@ -51,7 +55,7 @@ class ServerFragment : BaseConnectedFragment(R.layout.fragment_server) {
                 acceptThread =
                     AcceptThread(
                         bluetoothAdapter = adapter,
-                        displayName = requireContext().packageName,
+                        displayName = "RFCOMM server",
                         uuid = Constant.uuid,
                         onConnected = onConnected
                     ).apply {

@@ -6,11 +6,20 @@
     android:padding="16dp">
 
     <Button
-        android:id="@+id/bt_findServer"
+        android:id="@+id/bt_findByCompanionPairing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find server"
+        android:text="Find by companion pairing"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/bt_disassociateCompanions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disassociate companions"
+        app:layout_constraintTop_toBottomOf="@id/bt_findByCompanionPairing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -18,7 +27,7 @@
         android:id="@+id/line_view_message_and_log_top"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="bt_findServer"
+        app:constraint_referenced_ids="bt_disassociateCompanions"
         app:barrierDirection="bottom" />
 
     <include layout="@layout/view_message_and_log" />

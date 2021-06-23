@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.afollestad.assent.Permission
 import com.afollestad.assent.runWithPermissions
 import com.firemaples.rfcommtest.R
-import com.firemaples.rfcommtest.utility.Constant
 
 class MainFragment : Fragment(R.layout.main_fragment) {
 
@@ -22,17 +21,18 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             findNavController().navigate(MainFragmentDirections.actionAsServer())
         }
 
-        view.findViewById<View>(R.id.bt_setAsClient).setOnClickListener {
-            val permissions = mutableListOf<Permission>()
-            if (!Constant.useCompanionManager) {
-                permissions.add(Permission.ACCESS_FINE_LOCATION)
-            }
+        view.findViewById<View>(R.id.bt_setAsClientWithBTDiscovery).setOnClickListener {
+            val permissions = mutableListOf(Permission.ACCESS_FINE_LOCATION)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 permissions.add(Permission.ACCESS_BACKGROUND_LOCATION)
             }
             runWithPermissions(*permissions.toTypedArray()) {
-                findNavController().navigate(MainFragmentDirections.actionAsClient())
+                findNavController().navigate(MainFragmentDirections.actionAsClientWithBTDiscovery())
             }
+        }
+
+        view.findViewById<View>(R.id.bt_setAsClientWithCompanionPairing).setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionAsClientWithCompanionPairing())
         }
     }
 }

@@ -24,15 +24,20 @@
         app:layout_constraintTop_toBottomOf="@id/line_view_message_and_log_top"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_log"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:scrollbars="vertical"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintTop_toBottomOf="@+id/et_message"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical" />
+    </ScrollView>
 </merge>

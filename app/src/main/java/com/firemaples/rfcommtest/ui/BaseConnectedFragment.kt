@@ -82,8 +82,8 @@ open class BaseConnectedFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) 
         }
     }
 
-    protected fun printLog(log: String) {
-        val text = "${dateFormat.format(System.currentTimeMillis())} $log\n\n${tvLog.text}"
+    private fun printLog(log: String) {
+        val text = "${dateFormat.format(System.currentTimeMillis())}\n$log\n\n${tvLog.text}"
         tvLog.text = text
     }
 

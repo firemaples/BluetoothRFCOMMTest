@@ -1,6 +1,5 @@
 package com.firemaples.rfcommtest.utility
 
-import android.os.Build
 import android.os.ParcelUuid
 import java.util.*
 
@@ -16,14 +15,8 @@ object Constant {
     const val MSG_WRITE: Int = 1
     const val MSG_ERROR: Int = 2
 
-    /**
-     * https://developer.android.com/guide/topics/connectivity/companion-device-pairing
-     */
-    private const val ENABLE_COMPANION_MANAGER: Boolean = true
-    val useCompanionManager: Boolean
-        get() {
-            return ENABLE_COMPANION_MANAGER && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-        }
-
     const val USE_CLIENT_SERVICE = true
+
+    const val PAIR_DEVICE_WITH_NAME = false
+    const val PAIRING_DEVICE_NAME = "Note4"
 }

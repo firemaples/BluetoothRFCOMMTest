@@ -6,20 +6,20 @@
     android:padding="16dp">
 
     <Button
-        android:id="@+id/bt_requestDiscoverability"
+        android:id="@+id/bt_findByDiscovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Request discoverability"
+        android:text="Find by discovery"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/bt_startServer"
+    <CheckBox
+        android:id="@+id/cb_fetchUUIDs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start server"
-        app:layout_constraintTop_toBottomOf="@id/bt_requestDiscoverability"
+        android:text="Fetch UUIDs after scanning"
+        app:layout_constraintTop_toBottomOf="@id/bt_findByDiscovery"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/line_view_message_and_log_top"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="bt_startServer"
+        app:constraint_referenced_ids="cb_fetchUUIDs"
         app:barrierDirection="bottom" />
 
     <include layout="@layout/view_message_and_log" />

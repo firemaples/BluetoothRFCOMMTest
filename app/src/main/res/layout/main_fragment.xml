@@ -16,17 +16,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bt_setAsClient" />
+        app:layout_constraintBottom_toTopOf="@id/bt_setAsClientWithCompanionPairing" />
 
     <Button
-        android:id="@+id/bt_setAsClient"
+        android:id="@+id/bt_setAsClientWithCompanionPairing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="As client"
+        android:text="As client (Companion pairing)"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_setAsServer"
+        app:layout_constraintBottom_toTopOf="@id/bt_setAsClientWithBTDiscovery" />
+
+    <Button
+        android:id="@+id/bt_setAsClientWithBTDiscovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="As client (BT Discovery)"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_setAsClientWithCompanionPairing"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
